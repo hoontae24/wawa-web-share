@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      .toolbar {
+        margin: 0;
+        padding: 12px 0;
+        color: white;
+        background-color: #2e539f;
+        text-align: center;
+      }
+      .header {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+      }
+      .header .header-image {
+        margin-right: 8px;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+      }
+      .header .header-data span {
+        color: gray;
+        font-size: 0.875em;
+      }
+      hr {
+        margin: 0;
+      }
+      .article {
+        padding: 16px;
+      }
+      .article .title {
+        margin: 0;
+        margin-bottom: 16px;
+      }
+      .article .content {
+        white-space: pre-wrap;
+        margin-bottom: 16px;
+      }
+      .article .image {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 8px;
+      }
+      .footer {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .app-store {
+        display: inline-block;
+        text-align: center;
+        background-color: cornflowerblue;
+        padding: 12px;
+        color: white;
+        text-decoration: unset;
+        border-radius: 8px;
+      }
+    </style>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div class="main">
+      <h2 class="toolbar">와와(WAWA)</h2>
+      <div class="header">
+        <img class="header-image" src="<%= user.profileImage %>" />
+        <div class="header-data">
+          <b><%= user.name %></b>&nbsp;<span><%= user.mainName %></span><br />
+          <span><%= user.entymd %></span>
+        </div>
+      </div>
+      <hr />
+      <article class="article">
+        <h3 class="title"><%= title %></h3>
+        <div class="content"><%= content %></div>
+        <% for(var image of images){ %> <% if (image) { %>
+        <img class="image" src="<%= image %>" />
+        <% } %> <% } %>
+      </article>
+      <footer class="footer">
+        <a class="app-store" href="<%= appDownloadUrl %>">
+          스마트폰 앱 다운로드
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
