@@ -2,10 +2,11 @@
   "name": "wawa-web-share",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon -e .js,.ts -w src -w .env --exec \"babel-node -x .js,.ts src\"",
-    "build": "babel -x .js,.ts -d dist src",
+    "build": "babel -x .js,.ts,.ejs -d dist src",
+    "start": "node dist",
     "type:check": "tsc --noEmit --pretty"
   },
   "author": "hoontae24",

@@ -23,7 +23,7 @@ if (!server || !username || !password || !database) {
 const app = Express();
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "../views"));
 
 app.get("/", (req, res) => {
   const { seq } = req.query;
@@ -55,7 +55,8 @@ app.get("/", (req, res) => {
       const ns = {
         appDownloadUrl: process.env.APP_DOWNLOAD_URL,
         title:
-          data.USD_NAME || (content.length > 10 ? content + "..." : content),
+          data.USD_NAME ||
+          (content.length > 30 ? content.slice(0, 30) + "..." : content),
         user: {
           profileImage: data.MUR_IMG,
           name: data.MUR_NIC_NAME,
