@@ -52,6 +52,16 @@ app.get("/", (req, res) => {
       if (!data) return res.render("404");
 
       const content = data.USD_TEXT.split("\n")[0];
+      const youtubeHash = (data.USD_SITE || "").includes("youtu.be")
+        ? data.USD_SITE.split("/").pop()
+        : (data.USD_SITE || "").includes("youtube.com/watch")
+        ? data.USD_SITE.split("watch?")
+            .pop()
+            ?.split("&")
+            .find((q: string) => q.startsWith("v="))
+            ?.slice(2)
+        : "";
+
       const ns = {
         appDownloadUrl: process.env.APP_DOWNLOAD_URL,
         title:
@@ -66,6 +76,8 @@ app.get("/", (req, res) => {
             : "",
         },
         content: data.USD_TEXT,
+        video: data.USD_SITE,
+        youtubeHash: youtubeHash,
         images: [
           data.USD_IMG_1,
           data.USD_IMG_2,
