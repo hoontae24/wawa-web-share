@@ -73,8 +73,14 @@
         height: 100%;
       }
       .article .image {
-        display: inline-block;
+        display: block;
         max-width: 100%;
+        margin-bottom: 8px;
+      }
+      .article .image-content {
+        display: block;
+        max-width: 100%;
+        margin: 0;
         margin-bottom: 8px;
       }
       .footer {
@@ -122,9 +128,11 @@
           </div>
           <% } %> <% } %>
         </div>
-        <% for(var image of images){ %> <% if (image) { %>
-        <img class="image" src="<%= image %>" />
-        <% } %> <% } %>
+        <% for (let i = 0; i < images.length; i++) { %> <% if (images[i]) { %>
+        <img class="image" src="<%= images[i] %>" />
+        <% if (imageContents[i]) { %>
+        <p class="image-content"><%= imageContents[i] %></p>
+        <% } %> <% } %> <% } %>
       </article>
       <footer class="footer">
         <a class="app-store" href="<%= appDownloadUrl %>">

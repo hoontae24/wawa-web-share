@@ -95,6 +95,18 @@ app.get("/", (req, res) => {
             ? src
             : process.env.STATIC_FILE_HOST_PREFIX + src;
         }),
+        imageContents: [
+          data.USD_CON_1,
+          data.USD_CON_2,
+          data.USD_CON_3,
+          data.USD_CON_4,
+          data.USD_CON_5,
+          data.USD_CON_6,
+          data.USD_CON_7,
+          data.USD_CON_8,
+          data.USD_CON_9,
+          data.USD_CON_10,
+        ],
       };
       res.render("post.ejs", ns);
     })
