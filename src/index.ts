@@ -60,6 +60,8 @@ app.get("/", (req, res) => {
             ?.split("&")
             .find((q: string) => q.startsWith("v="))
             ?.slice(2)
+        : (data.USD_SITE || "").includes("youtube.com/shorts")
+        ? data.USD_SITE.split("/shorts/").pop()
         : "";
 
       const ns = {
