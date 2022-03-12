@@ -98,6 +98,13 @@
       }
     </style>
     <title><%= title %></title>
+    <meta property="og:url" content="121.138.240.6">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:type" content="website">
+    <% if (images[0]) { %>
+      <meta property="og:image" content="<%= images[0] %>">
+    <% } %>
+    <meta property="og:description" content="<%= content %> ">
   </head>
   <body>
     <div class="main">
